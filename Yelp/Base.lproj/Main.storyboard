@@ -23,9 +23,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="234-b4-IhT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="234-b4-IhT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessCell" rowHeight="120" id="b6k-LP-GKd" customClass="BuisinessCell" customModule="Yelp" customModuleProvider="target">
@@ -79,8 +78,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCD-gj-Db3">
-                                                    <rect key="frame" x="81" y="66" width="29" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCD-gj-Db3">
+                                                    <rect key="frame" x="81" y="66" width="286" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.47961611679999999" green="0.47961611679999999" blue="0.47961611679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -102,6 +101,7 @@
                                                 <constraint firstItem="pzV-ZA-vd3" firstAttribute="top" secondItem="jsc-Ma-0Vl" secondAttribute="bottom" constant="3" id="h7G-vz-ZGn"/>
                                                 <constraint firstItem="yqY-58-LPh" firstAttribute="leading" secondItem="jsc-Ma-0Vl" secondAttribute="trailing" constant="5" id="jra-2A-WFW"/>
                                                 <constraint firstItem="bCD-gj-Db3" firstAttribute="leading" secondItem="pzV-ZA-vd3" secondAttribute="leading" id="lut-kF-6Cs"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="bCD-gj-Db3" secondAttribute="trailing" constant="8" id="pNz-L8-4Ht"/>
                                                 <constraint firstItem="jsc-Ma-0Vl" firstAttribute="top" secondItem="aJk-MS-MNu" secondAttribute="bottomMargin" constant="10" id="pib-xe-zws"/>
                                                 <constraint firstAttribute="trailing" secondItem="pN8-q5-FBt" secondAttribute="trailing" constant="8" id="qOI-6X-IZd"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PuL-BV-UOR" secondAttribute="bottom" constant="12" id="sdG-wT-4oP"/>
@@ -117,12 +117,19 @@
                                             <outlet property="ratingImageView" destination="jsc-Ma-0Vl" id="6Gy-Ke-Hxk"/>
                                             <outlet property="reviewsCountLabel" destination="yqY-58-LPh" id="7ai-Gt-dRs"/>
                                             <outlet property="thumbImageView" destination="PuL-BV-UOR" id="yVV-ee-vOy"/>
+                                            <segue destination="fdz-3R-hnR" kind="show" id="Mmg-zJ-BhE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="234-b4-IhT" secondAttribute="trailing" id="HoE-Mb-bDp"/>
+                            <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="234-b4-IhT" secondAttribute="bottom" id="Rtj-IQ-qx4"/>
+                            <constraint firstItem="234-b4-IhT" firstAttribute="top" secondItem="XhR-oz-92f" secondAttribute="top" id="cNh-X7-USW"/>
+                            <constraint firstItem="234-b4-IhT" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="iGy-J4-G8P"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Yelp" id="qkx-oQ-Ru9"/>
                     <connections>
@@ -132,6 +139,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-4b-F1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2127.1999999999998" y="357.57121439280365"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="NHX-Mn-c7p">
+            <objects>
+                <viewController id="fdz-3R-hnR" customClass="DetailsViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5HQ-y8-cc2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mtk-p6-T14"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vUP-IA-Swr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbc-Hb-bhm">
+                                <rect key="frame" x="16" y="284" width="343" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="qbc-Hb-bhm" id="U1H-Ke-nvZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wNA-QL-u5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3020" y="357.57121439280365"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2T0-tG-MKG">
