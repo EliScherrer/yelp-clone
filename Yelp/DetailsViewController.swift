@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 
 class DetailsViewController: UIViewController, CLLocationManagerDelegate {
@@ -16,7 +17,7 @@ class DetailsViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager : CLLocationManager!
     
-    var business: Business? = nil
+    var business: Business?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,21 @@ class DetailsViewController: UIViewController, CLLocationManagerDelegate {
         let pinLocation = CLLocationCoordinate2DMake((business?.latitude)!, (business?.longitude)!)
         addAnnotationAtCoordinate(coordinate: pinLocation)
 
-        //
+        //set up location manager stuff that is supposed to handle the user location stuff
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.distanceFilter = 200
         locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+        
+        //set navigation bar title
+        navigationItem.title = business?.name
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +52,7 @@ class DetailsViewController: UIViewController, CLLocationManagerDelegate {
     
     //focus the map on the location
     func goToLocation(location: CLLocation) {
-        let span = MKCoordinateSpanMake(0.01, 0.01)
+        let span = MKCoordinateSpanMake(0.04, 0.04)
         let region = MKCoordinateRegionMake(location.coordinate, span)
         mapView.setRegion(region, animated: false)
     }
@@ -55,11 +65,12 @@ class DetailsViewController: UIViewController, CLLocationManagerDelegate {
         mapView.addAnnotation(annotation)
     }
     
-    //keep track of user location
+    //if the user changes preferences, start tracking
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == CLAuthorizationStatus.authorizedWhenInUse {
             locationManager.startUpdatingLocation()
         }
     }
+    
 
 }

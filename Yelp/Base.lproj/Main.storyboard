@@ -152,12 +152,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbc-Hb-bhm">
-                                <rect key="frame" x="16" y="284" width="343" height="260"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbc-Hb-bhm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qbc-Hb-bhm" firstAttribute="leading" secondItem="vUP-IA-Swr" secondAttribute="leading" id="8vl-CA-cx2"/>
+                            <constraint firstItem="Mtk-p6-T14" firstAttribute="top" secondItem="qbc-Hb-bhm" secondAttribute="bottom" id="SoB-ZW-uHy"/>
+                            <constraint firstItem="qbc-Hb-bhm" firstAttribute="top" secondItem="vUP-IA-Swr" secondAttribute="top" id="Zi1-mf-K3C"/>
+                            <constraint firstAttribute="trailing" secondItem="qbc-Hb-bhm" secondAttribute="trailing" id="svw-cl-Hu9"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="qbc-Hb-bhm" id="U1H-Ke-nvZ"/>
