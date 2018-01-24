@@ -1,6 +1,6 @@
-# Project 3 - *Name of App Here*
+# Project 3 - *Yelp*
 
-**Name of your app** is a Yelp search app using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
+**Yelp** is a Yelp search app using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
 
 Time spent: **X** hours spent in total
 
@@ -8,8 +8,8 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] Table rows for search results should be dynamic height according to the content height. (3pt)
-- [ ] Custom cells should have the proper Auto Layout constraints. (+5pt)
+- [X] Table rows for search results should be dynamic height according to the content height. (3pt)
+- [X] Custom cells should have the proper Auto Layout constraints. (+5pt)
 - [ ] Search bar should be in the navigation bar (doesn't have to expand to show location like the real Yelp app does). (+2pt)
 
 The following **optional** features are implemented:
